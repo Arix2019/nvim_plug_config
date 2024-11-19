@@ -1,5 +1,4 @@
-
-" plugins
+" init.vim
 call plug#begin()
 
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -12,11 +11,27 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 
+" Devicons
+Plug 'ryanoasis/vim-devicons'
+
+" syntax highlighting (várias linguagens)
+Plug 'sheerun/vim-polyglot'
+
+" NerdTree
+Plug 'preservim/nerdtree'
+
+" syntax highlighting nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 call plug#end()
+
 
 
 " Catppuccin colorscheme
 :colorscheme catppuccin
+
+
 
 " Airline theme (status bar)
 let g:airline_theme='catppuccin'
@@ -55,10 +70,27 @@ filetype plugin on   " Load the plugin file for the file type, if any
 filetype indent on   " Load the indent file for the file type, if any
 
 
+
 " Remaps """"""""""
-" remaps aqui
 "
+" NredTree
+nnoremap <space>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-\> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" Shortcuts for split navigation
+map <C-Left> <C-w>h  
+map <C-Down> <C-w>j
+map <C-Up> <C-w>k
+map <C-Right> <C-w>l
+
 
 " autocmd """"""""""
-" autocmds aqui
+"
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
+
+
+
 
