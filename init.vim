@@ -33,6 +33,11 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 " Snippets
 Plug 'honza/vim-snippets'
 
+" telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+" or                                , { 'branch': '0.1.x' }
+
 call plug#end()
 
 
@@ -113,9 +118,37 @@ map <C-Down> <C-w>j
 map <C-Up> <C-w>k
 map <C-Right> <C-w>l
 
+" Find files using Telescope command-line sugar.
+nnoremap <space>ff <cmd>Telescope find_files<cr>
+nnoremap <space>fg <cmd>Telescope live_grep<cr>
+nnoremap <space>fb <cmd>Telescope buffers<cr>
+nnoremap <space>fh <cmd>Telescope help_tags<cr>
+
+
+" personal keymaps
+nmap bn  :bn<CR>
+nmap ss  :w<CR>
+nmap xx  :q<CR>
+nmap sp  :split<CR>
+nmap vsp :vsplit<CR>
+
+
 
 " autocmd """"""""""
 "
+" highlight words
+function! HighlightWordUnderCursor()
+    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
+        exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
+    else
+        match none
+    endif
+endfunction
+
+autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+
+
+
 " Start NERDTree and leave the cursor in it.
 "autocmd VimEnter * NERDTree
 
