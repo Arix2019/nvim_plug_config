@@ -131,8 +131,10 @@ nmap ss  :w<CR>
 nmap xx  :q<CR>
 nmap sp  :split<CR>
 nmap vsp :vsplit<CR>
-
-
+nmap tt  :tabnew<CR>
+nmap tn  :tabnext<CR>
+nmap tc  :tabclose<CR>
+nmap pw  :below term powershell.exe<CR>
 
 " autocmd """"""""""
 "
