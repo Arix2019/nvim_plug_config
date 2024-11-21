@@ -135,6 +135,8 @@ nmap tt  :tabnew<CR>
 nmap tn  :tabnext<CR>
 nmap tc  :tabclose<CR>
 nmap pw  :below term powershell.exe<CR>
+nmap rs  :resize 5<CR>
+
 
 " autocmd """"""""""
 "
